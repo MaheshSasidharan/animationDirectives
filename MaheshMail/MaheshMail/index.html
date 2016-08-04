@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="Mail">
+<head>
+    <meta charset="UTF-8">
+    <title>To 8:46 and Beyond !!</title>
+    <link rel="icon" href="Content/Images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="Content/App/App.css" />
+    <script src="Scripts/Library/angular.min.js"></script>
+    <script src="Scripts/Library/angular-route.min.js"></script>
+    <script src="Scripts/App/App.js"></script>
+    <script src="Scripts/App/Common/Constants.js"></script>
+    <script src="Scripts/App/Common/CommonRoutines.js"></script>
+    <script src="Scripts/App/Common/DataService.js"></script>
+    <script src="Scripts/App/Common/Directives.js"></script>
+</head>
+
+<body ng-controller="LayoutPage as vm">
+    <label>Switch</label><input type="checkbox" ng-model="vm.dynamicCondition" />    
+    <div class="The_Wall">
+        <div class="Top_Section">
+            <div class="Tiles" data-tilecount="vm.tile.tileCount" ng-repeat="tile in vm.Tiles">
+                <div class="back" ng-click="vm.Helper.ShowData(tile)">
+                    <div>{{tile.back}}</div>
+                </div>
+                <div class="front" ng-click="vm.Helper.ShowData(tile)">
+                    <div>{{tile.front}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Bottom_Section" animate-randomrotate condition="vm.dynamicCondition">
+        <div class="Bottom_Left" back-img={{vm.oCurrentInnerTile.url}}>
+            <div class="Bottom_Left_Wrapper" ng-class="class_bottomLeft">
+                <div class="ActualContent" ng-bind-html="vm.oCurrentInnerTile.content"></div>
+            </div>
+        </div>
+        <div class="Bottom_Right">
+            <div class="Bottom_Right_Wrapper">
+                <div class="InnerTile randomrotateClass" ng-class="content.innerTileStyle" ng-click="vm.Helper.ShowTileData(content)" ng-repeat="content in vm.oCurrentTile.innerContents">
+                    <div class="IN_Title" ng-class="sTileclass">{{content.title}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
