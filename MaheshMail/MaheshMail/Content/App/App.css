@@ -534,6 +534,14 @@ a {
 
 /****************/
 
+.Top_Section {
+  perspective: 800px;
+}
+
+.Top_Section .randomscaleClass {
+  transition: transform 2000ms cubic-bezier(.9,.03,.03,.99);  
+}
+
 .Bottom_Right_Wrapper {
   perspective: 800px;
 }

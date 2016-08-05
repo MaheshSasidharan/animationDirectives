@@ -1,5 +1,29 @@
 ﻿Mail
 
+    .directive('animateRandomscale', function () {
+        return {
+            restrict: 'A',
+            scope: {
+                'condition': '='
+            },
+            link: function (scope, element, attrs) {
+                scope.$watch('condition', function (condition) {
+                    var myEl = angular.element(element[0].querySelectorAll('.randomscaleClass'));
+                    for (var i = 0; i < myEl.length; i++) {
+                        var ele = myEl[i];
+                        if (condition) {
+                            var scaleX = Math.random();
+                            //angular.element(ele).css('transform', 'scaleX(' + scaleX + ') scaleY(' + scaleY + ') scaleZ(' + scaleZ + ') ');
+                            angular.element(ele).css('transform', 'scaleX(' + scaleX + ')');                            
+                        } else {
+                            angular.element(ele).css('transform', 'scaleX(1)');
+                        }
+                    }                    
+                });
+            }
+        }
+    })
+	
     .directive('animateRandomrotate', function () {
         return {
             restrict: 'A',
@@ -12,9 +36,9 @@
                     for (var i = 0; i < myEl.length; i++) {
                         var ele = myEl[i];
                         if (condition) {
-                            var x = Math.floor((Math.random() * 60) + 1);
-                            var y = Math.floor((Math.random() * 60) + 1);
-                            var z = Math.floor((Math.random() * 60) + 1);
+                            var x = Math.floor((Math.random() * 360) + 1);
+                            var y = Math.floor((Math.random() * 360) + 1);
+                            var z = Math.floor((Math.random() * 360) + 1);
                             //angular.element(ele).css('transform', 'rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(' + z + 'deg)');
                             var scaleX = Math.random() /4;
                             var scaleY = Math.random() /4;

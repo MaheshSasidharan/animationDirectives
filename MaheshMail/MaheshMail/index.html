@@ -18,8 +18,8 @@
 <body ng-controller="LayoutPage as vm">
     <label>Switch</label><input type="checkbox" ng-model="vm.dynamicCondition" />    
     <div class="The_Wall">
-        <div class="Top_Section">
-            <div class="Tiles" data-tilecount="vm.tile.tileCount" ng-repeat="tile in vm.Tiles">
+        <div class="Top_Section" animate-randomscale condition="vm.dynamicCondition">
+            <div class="Tiles randomscaleClass" data-tilecount="vm.tile.tileCount" ng-repeat="tile in vm.Tiles">
                 <div class="back" ng-click="vm.Helper.ShowData(tile)">
                     <div>{{tile.back}}</div>
                 </div>
@@ -29,14 +29,14 @@
             </div>
         </div>
     </div>
-    <div class="Bottom_Section" animate-randomrotate condition="vm.dynamicCondition">
+    <div class="Bottom_Section">
         <div class="Bottom_Left" back-img={{vm.oCurrentInnerTile.url}}>
             <div class="Bottom_Left_Wrapper" ng-class="class_bottomLeft">
                 <div class="ActualContent" ng-bind-html="vm.oCurrentInnerTile.content"></div>
             </div>
         </div>
         <div class="Bottom_Right">
-            <div class="Bottom_Right_Wrapper">
+            <div class="Bottom_Right_Wrapper" animate-randomrotate condition="vm.dynamicCondition">
                 <div class="InnerTile randomrotateClass" ng-class="content.innerTileStyle" ng-click="vm.Helper.ShowTileData(content)" ng-repeat="content in vm.oCurrentTile.innerContents">
                     <div class="IN_Title" ng-class="sTileclass">{{content.title}}</div>
                 </div>
