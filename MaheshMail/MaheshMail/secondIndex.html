@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="Mail">
+<head>
+    <meta charset="UTF-8">
+    <title>To 8:46 and Beyond !!</title>
+    <link rel="icon" href="Content/Images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="Content/App/SecondApp.css" />
+    <script src="Scripts/Library/angular.min.js"></script>
+    <script src="Scripts/Library/angular-route.min.js"></script>
+    <script src="Scripts/App/SecondApp.js"></script>
+    <script src="Scripts/App/Common/Constants.js"></script>
+    <script src="Scripts/App/Common/CommonRoutines.js"></script>
+    <script src="Scripts/App/Common/DataService.js"></script>
+    <script src="Scripts/App/Common/Directives.js"></script>
+</head>
+
+<body ng-controller="LayoutPage as vm">
+	<section class="container">
+	  <div id="carousel" ng-style="{'transform': vm.sStyle}">
+		<figure>1</figure>
+		<figure>2</figure>
+		<figure>3</figure>
+		<figure>4</figure>
+		<figure>5</figure>
+		<figure>6</figure>
+		<figure>7</figure>
+		<figure>8</figure>
+		<figure>9</figure>
+	  </div>
+	</section>
+	
+	<div class="TheButtons">
+	<button ng-click="vm.GoRotate('p')">Previous</button>
+	<button ng-click="vm.GoRotate('n')">Next</button>
+	</div>
+</body>
+</html>
